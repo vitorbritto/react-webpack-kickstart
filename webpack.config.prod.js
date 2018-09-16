@@ -18,7 +18,7 @@ export default merge(BaseConfig, {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: '[name].[contenthash].js'
+    filename: '[name].[chunkhash].js'
   },
   plugins: [
     new CleanWebpackPlugin(['dist']),

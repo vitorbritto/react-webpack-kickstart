@@ -22,9 +22,13 @@ export default merge(BaseConfig, {
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/',
-    filename: 'app.js'
+    filename: '[name].js'
   },
   plugins: [
+    new MiniCssExtractPlugin({
+      chunkFilename: "assets/css/[id].css",
+      filename: `assets/css/[name]${isProduction ? ".[contenthash]" : ""}.css`,
+    }),
     new webpack.HotModuleReplacementPlugin(),
     new webpack.NoEmitOnErrorsPlugin(),
     new webpack.DefinePlugin(GLOBALS)
